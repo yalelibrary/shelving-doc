@@ -24,8 +24,10 @@
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
+    <!--
     <modules>
-        <module>../shelving</module>
-        <module>../shelving-web</module>
+        <module>shelving</module>
+        <module>shelving-web</module>
     </modules>
+    -->
 </project>
