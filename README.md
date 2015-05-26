@@ -31,7 +31,7 @@ mvn clean install -P prod
 
 ### Deployment
 
-1.The resulting war file (in the target folder in shelving-web) can now be dropped into Tomcat. Rename the war to shelving.war.
+The resulting war file (in the target folder in shelving-web) can now be dropped into Tomcat. Rename the war to shelving.war.
 
 System requirements: Oracle (aka Voyager), Sql Server (or MySql)
 
@@ -40,6 +40,7 @@ System requirements: Oracle (aka Voyager), Sql Server (or MySql)
 3. Log file location needs to be set in logback.xml files (grep for it).
 4. Adjust hibernate settings if MySql is used.
 5. Adjust CAS IP settings as necessary.
+6. Some CAS logout links are hard-coded in a few [pages](https://github.com/yalelibrary/shelving-web/search?utf8=%E2%9C%93&q=secure.its.yale.edu%2Fcas%2Flogout&type=Code).These will be fixed in the future, but for now should be edited.
 
 
 ### Database schema and Tomcat configuration files
