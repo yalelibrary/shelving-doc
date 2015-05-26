@@ -65,7 +65,69 @@ For Tomcat context.xml, the following settings should work:
                validationQuery="select * from admin"  />
 ```
 
-The database schema could be generated through auto.ddl.
+
+The database schema looks like the following for SqlServer:
+
+```
+CREATE TABLE [dbo].[floor](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nchar](45) NULL,
+	[editor] [nchar](10) NULL,
+	[date] [datetime] NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[admin](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[netid] [nvarchar](10) NULL,
+	[editor] [nvarchar](20) NULL,
+	[date] [datetime] NULL,
+	[adminCode] [nvarchar](30) NULL
+) ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[shelving](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[NETID] [nvarchar](16) NULL,
+	[creation_date] [datetime] NULL,
+	[form_date] [datetime] NULL,
+	[oversize] [nvarchar](50) NULL,
+	[time] [int] NULL,
+	[num_rows] [float] NULL,
+	[floor] [nvarchar](50) NULL,
+	[notes] [ntext] NULL,
+	[team] [nvarchar](10) NULL,
+	[barcode_start] [nvarchar](45) NULL,
+	[barcode_end] [nvarchar](45) NULL,
+	[accuracy_errors] [int] NULL,
+	[SCANLOCATION] [nvarchar](45) NULL,
+	[display_call_no_start] [nvarchar](200) NULL,
+	[display_call_no_end] [nvarchar](200) NULL,
+	[normalized_call_no_start] [nvarchar](200) NULL,
+	[normalized_call_no_end] [nvarchar](200) NULL,
+	[num_team] [float] NULL,
+	[item_status_start] [nvarchar](50) NULL,
+	[item_status_end] [nvarchar](50) NULL,
+	[item_status_start_date] [datetime] NULL,
+	[item_status_end_date] [datetime] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+
+CREATE TABLE [dbo].[multiple_locations](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[primary_location] [smallint] NULL,
+	[allowed_location] [smallint] NULL
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[location](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[editor] [nvarchar](45) NULL,
+	[date] [datetime] NULL
+) ON [PRIMARY]
+
+```
+
+
 
 ### Project description
 
